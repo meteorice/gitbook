@@ -2,7 +2,7 @@
 
 ## 1. Nacos集群搭建
 
-## 1.1. Nacos官方资料
+### 1.1. Nacos官方资料
 
 [https://nacos.io/zh-cn/](https://nacos.io/zh-cn/)
 
@@ -163,9 +163,9 @@ networks:
   * naming-raft.log 记录了raft信息
   * nacos.log 应用日志
 
-### 遇到问题
+## 2.遇到问题
 
-#### 报错unable to find local peer: 172.20.0.3:8848, all peers: \[nacos1:8848, nacos2:8848, nacos3:8848\]
+### 报错unable to find local peer: 172.20.0.3:8848, all peers: \[nacos1:8848, nacos2:8848, nacos3:8848\]
 
 这是因为没有使用PREFER\_HOST\_MODE=hostname,需要修改startup.sh文件
 
@@ -180,7 +180,7 @@ java.lang.IllegalStateException: unable to find local peer: 172.20.0.3:8848, all
         at java.lang.reflect.Method.invoke(Method.java:497)
 ```
 
-### 参考
+## 3.参考
 
 * [Nacos官网](https://nacos.io/zh-cn/index.html)
 * docker官方镜像,一条龙服务 Nacos + Grafana + Prometheus
