@@ -19,8 +19,7 @@
     db.user=nacos_devtest
     db.password=youdontknow
   ```
-
-* 运行bin/startup.sh
+* 运行bin/startup.sh -m standalone
 
 ### 1.3. docker集群部署
 
