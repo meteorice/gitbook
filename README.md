@@ -77,7 +77,9 @@
   ```
 
 * 编写docker-compose.yml文件
+  
 ```yml
+
 version: "3"
 services:
   nacos1:
