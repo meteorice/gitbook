@@ -4,7 +4,6 @@
 
 ## 1.1. Nacos官方资料
 
-
 [https://nacos.io/zh-cn/](https://nacos.io/zh-cn/)
 
 ### 1.2. 单机部署
@@ -28,7 +27,7 @@
 * [Nacos版本下载](https://github.com/alibaba/nacos/releases/)
 * 建立映射目录,集群至少三个所以建立3个目录,nacos\_cluster是我用来存放共用配置的地方
 
-  ```text
+  ```typescript
   ├── docker-compose.yml
   ├── nacos.env
   ├── nacos1
@@ -77,9 +76,8 @@
   ```
 
 * 编写docker-compose.yml文件
-  
-```yml
 
+```yaml
 version: "3"
 services:
   nacos1:
@@ -139,21 +137,21 @@ networks:
       name: prod_db_nets
 ```
 
-
 * nacos.env 环境配置
-```properties
-JAVA_PACKAGE=jdk
-JAVA_JCE=unlimited
-JAVA_HOME=/opt/jdk
-GLIBC_REPO=https://github.com/sgerrand/alpine-pkg-glibc
-LANG=C.UTF-8
-PREFER_HOST_MODE=hostname
-JAVA_OPT= -Duser.timezone=GMT+08
-```
+
+  ```bash
+  JAVA_PACKAGE=jdk
+  JAVA_JCE=unlimited
+  JAVA_HOME=/opt/jdk
+  GLIBC_REPO=https://github.com/sgerrand/alpine-pkg-glibc
+  LANG=C.UTF-8
+  PREFER_HOST_MODE=hostname
+  JAVA_OPT= -Duser.timezone=GMT+08
+  ```
 
 * cluster.conf
 
-  ```text
+  ```lua
   nacos1:8848
   nacos2:8848
   nacos3:8848
