@@ -77,9 +77,7 @@
   ```
 
 * 编写docker-compose.yml文件
-<<<<<<< HEAD
 ```yml
-
 version: "3"
 services:
   nacos1:
@@ -95,81 +93,51 @@ services:
     ports:
       - "8848:8848"
     env_file:
-      - ./nacos.env
-=======
-
-  \`\`\`yml version: "3" services: nacos1: hostname: nacos1 container\_name: nacos1 image: anapsix/alpine-java:8u201b09\_jdk\_unlimited volumes:
-
-  ```text
-  # - '/etc/localtime:/etc/localtime:ro'
-  - ./nacos1:/home/nacos
-  - ./nacos_cluster/conf:/home/nacos/conf
-  - ./nacos_cluster/bin:/home/nacos/bin
-  - ./nacos_cluster/target:/home/nacos/target
-  ```
-
-  ports:
-
-  * "8848:8848"
-
-    env\_file:
-
-  * ./nacos.env
-
->>>>>>> c270abfd66abf14fbbca25da8f877e152cb93c00
+      - ./nacos-hostname.env
     restart: on-failure
-
     command: /home/nacos/bin/startup.sh
 
-  nacos2: hostname: nacos2 container\_name: nacos2 image: anapsix/alpine-java:8u201b09\_jdk\_unlimited volumes:
-
-  ```text
-  # - '/etc/localtime:/etc/localtime:ro'
-  - ./nacos2:/home/nacos
-  - ./nacos_cluster/conf:/home/nacos/conf
-  - ./nacos_cluster/bin:/home/nacos/bin
-  - ./nacos_cluster/target:/home/nacos/target
-  ```
-
-  ports:
-
-  * "8849:8848"
-
-    env\_file:
-
-  * ./nacos.env
-
+  nacos2:
+    hostname: nacos2
+    container_name: nacos2
+    image: anapsix/alpine-java:8u201b09_jdk_unlimited
+    volumes:
+      # - '/etc/localtime:/etc/localtime:ro'
+      - ./nacos2:/home/nacos
+      - ./nacos_cluster/conf:/home/nacos/conf
+      - ./nacos_cluster/bin:/home/nacos/bin
+      - ./nacos_cluster/target:/home/nacos/target
+    ports:
+      - "8849:8848"
+    env_file:
+      - ./nacos-hostname.env
     restart: on-failure
-
     command: /home/nacos/bin/startup.sh
 
-  nacos3: hostname: nacos3 container\_name: nacos3 image: anapsix/alpine-java:8u201b09\_jdk\_unlimited volumes:
-
-  ```text
-  # - '/etc/localtime:/etc/localtime:ro'
-  - ./nacos3:/home/nacos
-  - ./nacos_cluster/conf:/home/nacos/conf
-  - ./nacos_cluster/bin:/home/nacos/bin
-  - ./nacos_cluster/target:/home/nacos/target
-  ```
-
-  ports:
-
-  * "8850:8848"
-
-    env\_file:
-
-  * ./nacos.env
-
+  nacos3:
+    hostname: nacos3
+    container_name: nacos3
+    image: anapsix/alpine-java:8u201b09_jdk_unlimited
+    volumes:
+      # - '/etc/localtime:/etc/localtime:ro'
+      - ./nacos3:/home/nacos
+      - ./nacos_cluster/conf:/home/nacos/conf
+      - ./nacos_cluster/bin:/home/nacos/bin
+      - ./nacos_cluster/target:/home/nacos/target
+    ports:
+      - "8850:8848"
+    env_file:
+      - ./nacos-hostname.env
     restart: on-failure
-
     command: /home/nacos/bin/startup.sh
 
-## 和mysql共用同一个网络，就可以用服务名代替ip配置进application.properties
+networks:
+  default:
+    external:
+      name: prod_db_nets
+```
 
-networks: default: external: name: prod\_db\_nets
 
-```text
 * nacos.env 环境配置
 ```properties
 JAVA_PACKAGE=jdk
