@@ -1,8 +1,6 @@
 
 # 1. Nacos集群搭建
 
-<!-- TOC -->autoauto- [1. Nacos集群搭建](#1-nacos集群搭建)auto    - [1.1. Nacos官方资料](#11-nacos官方资料)auto    - [1.2. 单机部署](#12-单机部署)auto    - [1.3. docker集群部署](#13-docker集群部署)autoauto<!-- /TOC -->
-
 ## 1.1. Nacos官方资料
 https://nacos.io/zh-cn/
 
@@ -74,6 +72,7 @@ https://nacos.io/zh-cn/
 
 * 编写docker-compose.yml文件
 ```yml
+
 version: "3"
 services:
   nacos1:
