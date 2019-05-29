@@ -1,4 +1,8 @@
-# Nacos
+---
+description: nacos 0.8.0  nacos 1.0.0  docker
+---
+
+# Nacos docker集群搭建
 
 ## 1. Nacos集群搭建
 
@@ -19,6 +23,7 @@
     db.user=nacos_devtest
     db.password=youdontknow
   ```
+
 * 运行bin/startup.sh -m standalone
 
 ### 1.3. docker集群部署
